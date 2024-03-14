@@ -88,7 +88,10 @@ public class NQueen extends JFrame implements ActionListener {
         if (col >= N) return true;
 
         for (int i = 0; i < N; i++) {
-            if (!isSafe(board, i, col)) continue;
+            if (!isSafe(board, i, col)) {
+                if (board[i][col] == 1) return false;
+                else continue;
+            }
 
             if (board[i][col] == 1) {
                 if (solveNQUtil(board, col + 1)) return true;
